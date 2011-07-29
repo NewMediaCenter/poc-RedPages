@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E9C8B4013E33E5E001D522C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9C8B3F13E33E5E001D522C /* UIKit.framework */; };
+		6E9C8B4213E33E5E001D522C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9C8B4113E33E5E001D522C /* Foundation.framework */; };
+		6E9C8B4413E33E5E001D522C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9C8B4313E33E5E001D522C /* CoreGraphics.framework */; };
+		6E9C8B4A13E33E5E001D522C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E9C8B4813E33E5E001D522C /* InfoPlist.strings */; };
+		6E9C8B4C13E33E5E001D522C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C8B4B13E33E5E001D522C /* main.m */; };
+		6E9C8B5013E33E5E001D522C /* RedPagesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C8B4F13E33E5E001D522C /* RedPagesAppDelegate.m */; };
+		6E9C8B5313E33E5E001D522C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E9C8B5113E33E5E001D522C /* MainStoryboard.storyboard */; };
+		6E9C8B5513E33E5E001D522C /* FirstViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 6E9C8B5413E33E5E001D522C /* FirstViewController.h */; };
+		6E9C8B5713E33E5E001D522C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C8B5613E33E5E001D522C /* FirstViewController.m */; };
+		6E9C8B5913E33E5E001D522C /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E9C8B5813E33E5E001D522C /* first.png */; };
+		6E9C8B5B13E33E5E001D522C /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E9C8B5A13E33E5E001D522C /* first@2x.png */; };
+		6E9C8B5D13E33E5E001D522C /* SecondViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 6E9C8B5C13E33E5E001D522C /* SecondViewController.h */; };
+		6E9C8B5F13E33E5E001D522C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C8B5E13E33E5E001D522C /* SecondViewController.m */; };
+		6E9C8B6113E33E5E001D522C /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E9C8B6013E33E5E001D522C /* second.png */; };
+		6E9C8B6313E33E5E001D522C /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E9C8B6213E33E5E001D522C /* second@2x.png */; };
+		6E9C8B6B13E33E5E001D522C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9C8B6A13E33E5E001D522C /* SenTestingKit.framework */; };
+		6E9C8B6C13E33E5E001D522C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9C8B3F13E33E5E001D522C /* UIKit.framework */; };
+		6E9C8B6D13E33E5E001D522C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9C8B4113E33E5E001D522C /* Foundation.framework */; };
+		6E9C8B6E13E33E5E001D522C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9C8B4313E33E5E001D522C /* CoreGraphics.framework */; };
+		6E9C8B7613E33E5E001D522C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E9C8B7413E33E5E001D522C /* InfoPlist.strings */; };
+		6E9C8B7813E33E5E001D522C /* RedPagesTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 6E9C8B7713E33E5E001D522C /* RedPagesTests.h */; };
+		6E9C8B7A13E33E5E001D522C /* RedPagesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C8B7913E33E5E001D522C /* RedPagesTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6E9C8B6F13E33E5E001D522C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E9C8B3213E33E5E001D522C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E9C8B3A13E33E5E001D522C;
+			remoteInfo = RedPages;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6E9C8B3B13E33E5E001D522C /* RedPages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedPages.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E9C8B3F13E33E5E001D522C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6E9C8B4113E33E5E001D522C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6E9C8B4313E33E5E001D522C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6E9C8B4713E33E5E001D522C /* RedPages-Info.plist */ = {isa = PBXFileReference; path = "RedPages-Info.plist"; sourceTree = "<group>"; };
+		6E9C8B4913E33E5E001D522C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6E9C8B4B13E33E5E001D522C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6E9C8B4D13E33E5E001D522C /* RedPages-Prefix.pch */ = {isa = PBXFileReference; path = "RedPages-Prefix.pch"; sourceTree = "<group>"; };
+		6E9C8B4E13E33E5E001D522C /* RedPagesAppDelegate.h */ = {isa = PBXFileReference; path = RedPagesAppDelegate.h; sourceTree = "<group>"; };
+		6E9C8B4F13E33E5E001D522C /* RedPagesAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedPagesAppDelegate.m; sourceTree = "<group>"; };
+		6E9C8B5213E33E5E001D522C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		6E9C8B5413E33E5E001D522C /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		6E9C8B5613E33E5E001D522C /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		6E9C8B5813E33E5E001D522C /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		6E9C8B5A13E33E5E001D522C /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		6E9C8B5C13E33E5E001D522C /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		6E9C8B5E13E33E5E001D522C /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		6E9C8B6013E33E5E001D522C /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		6E9C8B6213E33E5E001D522C /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		6E9C8B6913E33E5E001D522C /* RedPagesTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedPagesTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E9C8B6A13E33E5E001D522C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		6E9C8B7313E33E5E001D522C /* RedPagesTests-Info.plist */ = {isa = PBXFileReference; path = "RedPagesTests-Info.plist"; sourceTree = "<group>"; };
+		6E9C8B7513E33E5E001D522C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6E9C8B7713E33E5E001D522C /* RedPagesTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RedPagesTests.h; sourceTree = "<group>"; };
+		6E9C8B7913E33E5E001D522C /* RedPagesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedPagesTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6E9C8B3813E33E5E001D522C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E9C8B4013E33E5E001D522C /* UIKit.framework in Frameworks */,
+				6E9C8B4213E33E5E001D522C /* Foundation.framework in Frameworks */,
+				6E9C8B4413E33E5E001D522C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9C8B6513E33E5E001D522C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E9C8B6B13E33E5E001D522C /* SenTestingKit.framework in Frameworks */,
+				6E9C8B6C13E33E5E001D522C /* UIKit.framework in Frameworks */,
+				6E9C8B6D13E33E5E001D522C /* Foundation.framework in Frameworks */,
+				6E9C8B6E13E33E5E001D522C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6E9C8B3013E33E5E001D522C = {
+			isa = PBXGroup;
+			children = (
+				6E9C8B4513E33E5E001D522C /* RedPages */,
+				6E9C8B7113E33E5E001D522C /* RedPagesTests */,
+				6E9C8B3E13E33E5E001D522C /* Frameworks */,
+				6E9C8B3C13E33E5E001D522C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6E9C8B3C13E33E5E001D522C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6E9C8B3B13E33E5E001D522C /* RedPages.app */,
+				6E9C8B6913E33E5E001D522C /* RedPagesTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6E9C8B3E13E33E5E001D522C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E9C8B3F13E33E5E001D522C /* UIKit.framework */,
+				6E9C8B4113E33E5E001D522C /* Foundation.framework */,
+				6E9C8B4313E33E5E001D522C /* CoreGraphics.framework */,
+				6E9C8B6A13E33E5E001D522C /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6E9C8B4513E33E5E001D522C /* RedPages */ = {
+			isa = PBXGroup;
+			children = (
+				6E9C8B4E13E33E5E001D522C /* RedPagesAppDelegate.h */,
+				6E9C8B4F13E33E5E001D522C /* RedPagesAppDelegate.m */,
+				6E9C8B5113E33E5E001D522C /* MainStoryboard.storyboard */,
+				6E9C8B5413E33E5E001D522C /* FirstViewController.h */,
+				6E9C8B5613E33E5E001D522C /* FirstViewController.m */,
+				6E9C8B5813E33E5E001D522C /* first.png */,
+				6E9C8B5A13E33E5E001D522C /* first@2x.png */,
+				6E9C8B5C13E33E5E001D522C /* SecondViewController.h */,
+				6E9C8B5E13E33E5E001D522C /* SecondViewController.m */,
+				6E9C8B6013E33E5E001D522C /* second.png */,
+				6E9C8B6213E33E5E001D522C /* second@2x.png */,
+				6E9C8B4613E33E5E001D522C /* Supporting Files */,
+			);
+			path = RedPages;
+			sourceTree = "<group>";
+		};
+		6E9C8B4613E33E5E001D522C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6E9C8B4713E33E5E001D522C /* RedPages-Info.plist */,
+				6E9C8B4813E33E5E001D522C /* InfoPlist.strings */,
+				6E9C8B4B13E33E5E001D522C /* main.m */,
+				6E9C8B4D13E33E5E001D522C /* RedPages-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6E9C8B7113E33E5E001D522C /* RedPagesTests */ = {
+			isa = PBXGroup;
+			children = (
+				6E9C8B7713E33E5E001D522C /* RedPagesTests.h */,
+				6E9C8B7913E33E5E001D522C /* RedPagesTests.m */,
+				6E9C8B7213E33E5E001D522C /* Supporting Files */,
+			);
+			path = RedPagesTests;
+			sourceTree = "<group>";
+		};
+		6E9C8B7213E33E5E001D522C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6E9C8B7313E33E5E001D522C /* RedPagesTests-Info.plist */,
+				6E9C8B7413E33E5E001D522C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6E9C8B3A13E33E5E001D522C /* RedPages */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E9C8B7D13E33E5E001D522C /* Build configuration list for PBXNativeTarget "RedPages" */;
+			buildPhases = (
+				6E9C8B3713E33E5E001D522C /* Sources */,
+				6E9C8B3813E33E5E001D522C /* Frameworks */,
+				6E9C8B3913E33E5E001D522C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RedPages;
+			productName = RedPages;
+			productReference = 6E9C8B3B13E33E5E001D522C /* RedPages.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6E9C8B6813E33E5E001D522C /* RedPagesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E9C8B8013E33E5E001D522C /* Build configuration list for PBXNativeTarget "RedPagesTests" */;
+			buildPhases = (
+				6E9C8B6413E33E5E001D522C /* Sources */,
+				6E9C8B6513E33E5E001D522C /* Frameworks */,
+				6E9C8B6613E33E5E001D522C /* Resources */,
+				6E9C8B6713E33E5E001D522C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E9C8B7013E33E5E001D522C /* PBXTargetDependency */,
+			);
+			name = RedPagesTests;
+			productName = RedPagesTests;
+			productReference = 6E9C8B6913E33E5E001D522C /* RedPagesTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6E9C8B3213E33E5E001D522C /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 6E9C8B3513E33E5E001D522C /* Build configuration list for PBXProject "RedPages" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6E9C8B3013E33E5E001D522C;
+			productRefGroup = 6E9C8B3C13E33E5E001D522C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6E9C8B3A13E33E5E001D522C /* RedPages */,
+				6E9C8B6813E33E5E001D522C /* RedPagesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6E9C8B3913E33E5E001D522C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E9C8B4A13E33E5E001D522C /* InfoPlist.strings in Resources */,
+				6E9C8B5313E33E5E001D522C /* MainStoryboard.storyboard in Resources */,
+				6E9C8B5513E33E5E001D522C /* FirstViewController.h in Resources */,
+				6E9C8B5913E33E5E001D522C /* first.png in Resources */,
+				6E9C8B5B13E33E5E001D522C /* first@2x.png in Resources */,
+				6E9C8B5D13E33E5E001D522C /* SecondViewController.h in Resources */,
+				6E9C8B6113E33E5E001D522C /* second.png in Resources */,
+				6E9C8B6313E33E5E001D522C /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9C8B6613E33E5E001D522C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E9C8B7613E33E5E001D522C /* InfoPlist.strings in Resources */,
+				6E9C8B7813E33E5E001D522C /* RedPagesTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6E9C8B6713E33E5E001D522C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6E9C8B3713E33E5E001D522C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E9C8B4C13E33E5E001D522C /* main.m in Sources */,
+				6E9C8B5013E33E5E001D522C /* RedPagesAppDelegate.m in Sources */,
+				6E9C8B5713E33E5E001D522C /* FirstViewController.m in Sources */,
+				6E9C8B5F13E33E5E001D522C /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9C8B6413E33E5E001D522C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E9C8B7A13E33E5E001D522C /* RedPagesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6E9C8B7013E33E5E001D522C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E9C8B3A13E33E5E001D522C /* RedPages */;
+			targetProxy = 6E9C8B6F13E33E5E001D522C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6E9C8B4813E33E5E001D522C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E9C8B4913E33E5E001D522C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6E9C8B5113E33E5E001D522C /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E9C8B5213E33E5E001D522C /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		6E9C8B7413E33E5E001D522C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E9C8B7513E33E5E001D522C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6E9C8B7B13E33E5E001D522C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6E9C8B7C13E33E5E001D522C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6E9C8B7E13E33E5E001D522C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RedPages/RedPages-Prefix.pch";
+				INFOPLIST_FILE = "RedPages/RedPages-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6E9C8B7F13E33E5E001D522C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RedPages/RedPages-Prefix.pch";
+				INFOPLIST_FILE = "RedPages/RedPages-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		6E9C8B8113E33E5E001D522C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RedPages.app/RedPages";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RedPages/RedPages-Prefix.pch";
+				INFOPLIST_FILE = "RedPagesTests/RedPagesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		6E9C8B8213E33E5E001D522C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RedPages.app/RedPages";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RedPages/RedPages-Prefix.pch";
+				INFOPLIST_FILE = "RedPagesTests/RedPagesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6E9C8B3513E33E5E001D522C /* Build configuration list for PBXProject "RedPages" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E9C8B7B13E33E5E001D522C /* Debug */,
+				6E9C8B7C13E33E5E001D522C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E9C8B7D13E33E5E001D522C /* Build configuration list for PBXNativeTarget "RedPages" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E9C8B7E13E33E5E001D522C /* Debug */,
+				6E9C8B7F13E33E5E001D522C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6E9C8B8013E33E5E001D522C /* Build configuration list for PBXNativeTarget "RedPagesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E9C8B8113E33E5E001D522C /* Debug */,
+				6E9C8B8213E33E5E001D522C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6E9C8B3213E33E5E001D522C /* Project object */;
+}
