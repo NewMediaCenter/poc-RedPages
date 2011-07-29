@@ -29,6 +29,9 @@
 		6E9C8B7613E33E5E001D522C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E9C8B7413E33E5E001D522C /* InfoPlist.strings */; };
 		6E9C8B7813E33E5E001D522C /* RedPagesTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 6E9C8B7713E33E5E001D522C /* RedPagesTests.h */; };
 		6E9C8B7A13E33E5E001D522C /* RedPagesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C8B7913E33E5E001D522C /* RedPagesTests.m */; };
+		6E9C8B8D13E34737001D522C /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C8B8C13E34737001D522C /* Person.m */; };
+		6E9C8B9313E348D9001D522C /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9C8B9213E348D9001D522C /* AddressBook.framework */; };
+		6E9C8B9513E348F5001D522C /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9C8B9413E348F5001D522C /* AddressBookUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,11 +49,11 @@
 		6E9C8B3F13E33E5E001D522C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6E9C8B4113E33E5E001D522C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6E9C8B4313E33E5E001D522C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		6E9C8B4713E33E5E001D522C /* RedPages-Info.plist */ = {isa = PBXFileReference; path = "RedPages-Info.plist"; sourceTree = "<group>"; };
+		6E9C8B4713E33E5E001D522C /* RedPages-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RedPages-Info.plist"; sourceTree = "<group>"; };
 		6E9C8B4913E33E5E001D522C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6E9C8B4B13E33E5E001D522C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6E9C8B4D13E33E5E001D522C /* RedPages-Prefix.pch */ = {isa = PBXFileReference; path = "RedPages-Prefix.pch"; sourceTree = "<group>"; };
-		6E9C8B4E13E33E5E001D522C /* RedPagesAppDelegate.h */ = {isa = PBXFileReference; path = RedPagesAppDelegate.h; sourceTree = "<group>"; };
+		6E9C8B4D13E33E5E001D522C /* RedPages-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RedPages-Prefix.pch"; sourceTree = "<group>"; };
+		6E9C8B4E13E33E5E001D522C /* RedPagesAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RedPagesAppDelegate.h; sourceTree = "<group>"; };
 		6E9C8B4F13E33E5E001D522C /* RedPagesAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedPagesAppDelegate.m; sourceTree = "<group>"; };
 		6E9C8B5213E33E5E001D522C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6E9C8B5413E33E5E001D522C /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
@@ -63,10 +66,14 @@
 		6E9C8B6213E33E5E001D522C /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		6E9C8B6913E33E5E001D522C /* RedPagesTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedPagesTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E9C8B6A13E33E5E001D522C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		6E9C8B7313E33E5E001D522C /* RedPagesTests-Info.plist */ = {isa = PBXFileReference; path = "RedPagesTests-Info.plist"; sourceTree = "<group>"; };
+		6E9C8B7313E33E5E001D522C /* RedPagesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RedPagesTests-Info.plist"; sourceTree = "<group>"; };
 		6E9C8B7513E33E5E001D522C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6E9C8B7713E33E5E001D522C /* RedPagesTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RedPagesTests.h; sourceTree = "<group>"; };
 		6E9C8B7913E33E5E001D522C /* RedPagesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedPagesTests.m; sourceTree = "<group>"; };
+		6E9C8B8B13E34737001D522C /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		6E9C8B8C13E34737001D522C /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		6E9C8B9213E348D9001D522C /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		6E9C8B9413E348F5001D522C /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E9C8B9513E348F5001D522C /* AddressBookUI.framework in Frameworks */,
+				6E9C8B9313E348D9001D522C /* AddressBook.framework in Frameworks */,
 				6E9C8B4013E33E5E001D522C /* UIKit.framework in Frameworks */,
 				6E9C8B4213E33E5E001D522C /* Foundation.framework in Frameworks */,
 				6E9C8B4413E33E5E001D522C /* CoreGraphics.framework in Frameworks */,
@@ -97,6 +106,8 @@
 		6E9C8B3013E33E5E001D522C = {
 			isa = PBXGroup;
 			children = (
+				6E9C8B9413E348F5001D522C /* AddressBookUI.framework */,
+				6E9C8B9213E348D9001D522C /* AddressBook.framework */,
 				6E9C8B4513E33E5E001D522C /* RedPages */,
 				6E9C8B7113E33E5E001D522C /* RedPagesTests */,
 				6E9C8B3E13E33E5E001D522C /* Frameworks */,
@@ -132,6 +143,8 @@
 				6E9C8B5113E33E5E001D522C /* MainStoryboard.storyboard */,
 				6E9C8B5413E33E5E001D522C /* FirstViewController.h */,
 				6E9C8B5613E33E5E001D522C /* FirstViewController.m */,
+				6E9C8B8B13E34737001D522C /* Person.h */,
+				6E9C8B8C13E34737001D522C /* Person.m */,
 				6E9C8B5813E33E5E001D522C /* first.png */,
 				6E9C8B5A13E33E5E001D522C /* first@2x.png */,
 				6E9C8B5C13E33E5E001D522C /* SecondViewController.h */,
@@ -287,6 +300,7 @@
 				6E9C8B5013E33E5E001D522C /* RedPagesAppDelegate.m in Sources */,
 				6E9C8B5713E33E5E001D522C /* FirstViewController.m in Sources */,
 				6E9C8B5F13E33E5E001D522C /* SecondViewController.m in Sources */,
+				6E9C8B8D13E34737001D522C /* Person.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

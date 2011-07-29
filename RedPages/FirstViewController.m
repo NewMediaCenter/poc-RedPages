@@ -10,6 +10,9 @@
 
 @implementation FirstViewController
 
+@synthesize directoryConnnection;
+@synthesize rawResponse;
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -22,6 +25,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
 }
 
 - (void)viewDidUnload
@@ -55,6 +59,22 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSString *searchQueryURL = [NSString stringWithFormat:
+                              @"http://peoplefinder.unl.edu/service.php?q=%@&format=xml",[[searchBar text] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+    NSURLRequest *queryRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:searchQueryURL]];
+    [self setDirectoryConnnection:[[NSURLConnection alloc] initWithRequest:queryRequest delegate:self]];
+    if (self.directoryConnnection == nil)
+    {
+        // do stuff
+    }
+    [searchActive startAnimating];
+    
+    
+    
 }
 
 @end
