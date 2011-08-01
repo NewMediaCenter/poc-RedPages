@@ -18,7 +18,9 @@
 @synthesize postalAddress;
 @synthesize telephoneNumber;
 @synthesize unlHRPrimaryDepartment;
-
+@synthesize cn;
+@synthesize ou;
+@synthesize image;
 - (id)init
 {
     self = [super init];
@@ -29,6 +31,10 @@
     return self;
 }
 
-
+- (NSString *)description
+{
+    NSString *returnString = [[NSString alloc] initWithFormat:@"Person:@%",displayName];
+    return returnString;
+}
 
 @end

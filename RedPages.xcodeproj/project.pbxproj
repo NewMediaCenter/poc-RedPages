@@ -230,6 +230,9 @@
 /* Begin PBXProject section */
 		6E9C8B3213E33E5E001D522C /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 6E9C8B3513E33E5E001D522C /* Build configuration list for PBXProject "RedPages" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -470,6 +473,7 @@
 				6E9C8B7F13E33E5E001D522C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6E9C8B8013E33E5E001D522C /* Build configuration list for PBXNativeTarget "RedPagesTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +482,7 @@
 				6E9C8B8213E33E5E001D522C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

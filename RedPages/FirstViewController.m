@@ -58,6 +58,40 @@
 	[super viewDidDisappear:animated];
 }
 
+- (NSInteger)tableView:(UITableView *)tableView 
+ numberOfRowsInSection:(NSInteger)section 
+{
+    return [results count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView 
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+    // Check for a reusable cell first, use that if it exists
+    UITableViewCell *cell =
+    [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    
+    // If there is no reusable cell of this type, create a new one
+    if (!cell) {
+        cell = [[UITableViewCell alloc]
+                 initWithStyle:UITableViewCellStyleSubtitle
+                 reuseIdentifier:@"UITableViewCell"];
+    }
+    
+    // Set the text on the cell with the description of the possession
+    // that is at the nth index of possessions, where n = row this cell
+    // will appear in on the tableview
+    Person *p = [results objectAtIndex:[indexPath row]];
+    
+
+    [[cell textLabel] setText:[p displayName]];
+    [[cell detailTextLabel] setText:[p title]];
+  //  [[cell imageView] setImage:[p image]];
+    
+    return cell;
+}
+
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -67,9 +101,11 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     NSLog(@"THIS WORKS");
+    rawResponse = [[NSMutableData alloc] init];
     NSString *searchQueryURL = [NSString stringWithFormat:
-                              @"http://directory.unl.edu/service.php?q=%@&format=xml",[[searchBar text] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
-    NSURLRequest *queryRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:searchQueryURL]];
+                              @"http://directory.unl.edu/service.php?uid=%@&format=xml",[[searchBar text] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+    NSURLRequest *queryRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:searchQueryURL]]; 
+    NSLog (@"Loading URL: %@", searchQueryURL);
     [self setDirectoryConnnection:[[NSURLConnection alloc] initWithRequest:queryRequest delegate:self startImmediately:YES]];
     if (self.directoryConnnection == nil)
     {
@@ -91,7 +127,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     
-    NSLog(@"Raw Data: %@", rawResponse);
+//    NSLog(@"Raw Data: %@", rawResponse);
     
     // lets create it and give it some data
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:rawResponse];
@@ -104,7 +140,7 @@
     //[parser release]; ~~ DEPRECATED WITH ARC
     
     //TODO:: Relaoad data
-    NSLog(@"Total Results: %@", results);
+   // NSLog(@"Total Results: %@", results);
     
 }
 
@@ -130,21 +166,31 @@
 {
     
 	if([elementName isEqualToString:@"person"]) {
-		[results addObject:record];
+	//	[record setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[record imageURL]]]];
+        NSLog (@"Person: %@", record);
+        [results addObject:record];
 		
 				
-	//	[record release];
-		record = nil;
+	
+	}
+	else if ([elementName isEqualToString:@"cn"]) {
+		[[record cn] addObject:currentElementValue];
 	}
 	
-	
-	else 
+	else if ([elementName isEqualToString:@"ou"]) {
+		[[record ou] addObject:currentElementValue];
+	}
+		else 
     {
         if ([record respondsToSelector: @selector(elementName)]) {
             [record setValue:currentElementValue forKey:elementName];
         }
        
     }
+    //	[record release];
+    record = nil;
+
+    //NSLog(@"element name = %@ | %@",elementName, currentElementValue);	
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
@@ -159,9 +205,9 @@
 	else
 		[currentElementValue appendString:string];
     
-#if kNSLog
+
 	NSLog(@"Processing Value: %@", currentElementValue);
-#endif
+
 	
 }
 
