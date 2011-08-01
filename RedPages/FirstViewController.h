@@ -9,21 +9,26 @@
 #import <UIKit/UIKit.h>
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
+#import "Person.h"
 
-@interface QuickContactsViewController : UITableViewController <   ABPeoplePickerNavigationControllerDelegate,
+@interface FirstViewController : UIViewController < ABPeoplePickerNavigationControllerDelegate,
 ABPersonViewControllerDelegate,
-ABNewPersonViewControllerDelegate,
-ABUnknownPersonViewControllerDelegate, NSXMLParserDelegate>
+ABNewPersonViewControllerDelegate, NSURLConnectionDataDelegate, NSURLConnectionDelegate,
+ABUnknownPersonViewControllerDelegate, NSXMLParserDelegate, UISearchDisplayDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 
 {
     NSMutableArray *results;
     NSMutableData *rawResponse;
-    NSString *query;
-    NSString *selectedCN;
-    BOOL searchActive;
-    
+    NSURLConnection *directoryConnection;
+    IBOutlet UIActivityIndicatorView *searchActive;
+    Person *record;
+    NSMutableString *currentElementValue;
 
 }
 
+@property (nonatomic, retain) NSURLConnection *directoryConnnection;
+@property (nonatomic, retain) NSMutableData *rawResponse;
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar;
 
 @end

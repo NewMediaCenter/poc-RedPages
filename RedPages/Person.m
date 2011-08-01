@@ -9,6 +9,15 @@
 #import "Person.h"
 
 @implementation Person
+@synthesize displayName;
+@synthesize sn;
+@synthesize mail;
+@synthesize title;
+@synthesize imageURL;
+@synthesize givenName;
+@synthesize postalAddress;
+@synthesize telephoneNumber;
+@synthesize unlHRPrimaryDepartment;
 
 - (id)init
 {
@@ -19,5 +28,7 @@
     
     return self;
 }
+
+
 
 @end
