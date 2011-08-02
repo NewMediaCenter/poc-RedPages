@@ -191,19 +191,36 @@
 	else if ([elementName isEqualToString:@"ou"]) {
 		[[record ou] addObject:currentElementValue];
 	}
-		else 
-    {
-        NSMutableString *selMeth = [[NSMutableString alloc] initWithString:@"set"];
-        [selMeth appendString:elementName];
-        NSLog(@"sel:%@", [selMeth description]);
-        if ([record respondsToSelector: NSSelectorFromString(selMeth)]) {
-            [record setValue:currentElementValue forKey:elementName];
-        }
-       
-    }
-    //	[record release];
     
-
+    else if ([elementName isEqualToString:@"givenName"]) {
+		[record setGivenName:currentElementValue];
+	}
+	
+	else if ([elementName isEqualToString:@"displayName"]) {
+        [record setDisplayName:currentElementValue];
+    }
+    else if ([elementName isEqualToString:@"mail"]) {
+		[record setMail:currentElementValue];
+	}
+	
+	else if ([elementName isEqualToString:@"telephoneNumber"]) {
+		[record setTelephoneNumber:currentElementValue];
+	}
+    else if ([elementName isEqualToString:@"title"]) {
+		[record setTitle:currentElementValue];
+	}
+	
+	else if ([elementName isEqualToString:@"unlHRPrimaryDepartment"]) {
+		[record setUnlHRPrimaryDepartment:currentElementValue];
+	}
+    else if ([elementName isEqualToString:@"postalAddress"]) {
+		[record setPostalAddress:currentElementValue];
+	}
+	
+	else if ([elementName isEqualToString:@"imageURL"]) {
+		[record setImageURL: [NSURL URLWithString:currentElementValue]];
+	}
+   
     //NSLog(@"element name = %@ | %@",elementNacme, currentElementValue);	
 }
 

@@ -20,7 +20,7 @@
 
     NSString *displayName;
     NSString *mail;
-    NSNumber *telephoneNumber;
+    NSString *telephoneNumber;
     NSString *title;
     NSString *unlHRPrimaryDepartment;
     NSString *postalAddress;
@@ -35,7 +35,7 @@
 @property (nonatomic, retain) NSMutableArray *ou;
 @property (nonatomic, retain) NSString *displayName;
 @property (nonatomic, retain) NSString *mail;
-@property (nonatomic, retain) NSNumber *telephoneNumber;
+@property (nonatomic, retain) NSString *telephoneNumber;
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSString *unlHRPrimaryDepartment;
 @property (nonatomic, retain) NSString *postalAddress;
