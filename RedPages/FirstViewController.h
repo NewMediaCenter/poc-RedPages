@@ -20,7 +20,8 @@ ABUnknownPersonViewControllerDelegate, NSXMLParserDelegate, UISearchDisplayDeleg
     NSMutableArray *results;
     NSMutableData *rawResponse;
     NSURLConnection *directoryConnection;
-    IBOutlet UIActivityIndicatorView *searchActive;
+    UIActivityIndicatorView *activityIndicator;
+    UIBarButtonItem *barButton;
     Person *record;
     NSMutableString *currentElementValue;
     IBOutlet UITableView *tableView;
@@ -34,5 +35,6 @@ ABUnknownPersonViewControllerDelegate, NSXMLParserDelegate, UISearchDisplayDeleg
 @property (nonatomic, retain) Person *record;
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar;
 - (void)showUnknownPersonViewController;
+- (void)letsParse;
 
 @end

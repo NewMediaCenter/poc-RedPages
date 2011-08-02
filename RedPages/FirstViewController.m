@@ -31,6 +31,15 @@
     [tableView setDelegate:self];
     [tableView setDataSource:self];
     self.searchDisplayController.searchBar.scopeButtonTitles = nil;
+    activityIndicator = 
+    [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+     barButton = 
+    [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
+    
+    // Set to Left or Right
+    [[self navigationItem] setRightBarButtonItem:barButton];
+    
+
 }
 
 - (void)viewDidUnload
@@ -113,8 +122,8 @@
     {
         // do stuff
     }
-    [searchActive setHidden:NO];
-    [searchActive startAnimating];
+    
+    [activityIndicator startAnimating];
     [self.searchDisplayController setActive:NO animated:YES];
     
     
@@ -133,13 +142,15 @@
 //    NSLog(@"Raw Data: %@", rawResponse);
     
     // lets create it and give it some data
-    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:rawResponse];
-    // we want the messages
-    [parser setDelegate:self];
-    //lets have it start parsing
-    [parser parse];
     
-   
+    // we want the messages
+    
+    //lets have it start parsing
+    //[parser parse];
+    // ACTUALLY, lets have it parse in an operation
+  
+    [self letsParse];
+ 
     
     
     //now that its done, we can release it
@@ -149,9 +160,19 @@
    // NSLog(@"Total Results: %@", results);
     
 }
+- (void)letsParse
+{
+    @autoreleasepool {
+        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:rawResponse];
+        [parser setDelegate:self];
+        [NSThread detachNewThreadSelector:@selector(parse) toTarget:parser withObject:nil];
+    }
+}
+
+
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
-     [searchActive stopAnimating];
+     [activityIndicator stopAnimating];
     [tableView reloadData];
 }
 
@@ -185,6 +206,7 @@
             [record setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[record imageURL]]]];
     //        NSLog (@"Person: %@", record);
             [results addObject:record]; 
+            [tableView reloadData];
         }
 		
 		
@@ -299,18 +321,10 @@
 			[self.navigationController pushViewController:picker animated:YES];
         }
     }
-		
-    
-   
 
-
-    
-        
-
-                
-			
 			
 }
+
 
 @end
 
