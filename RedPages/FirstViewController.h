@@ -33,5 +33,6 @@ ABUnknownPersonViewControllerDelegate, NSXMLParserDelegate, UISearchDisplayDeleg
 @property (nonatomic, retain) NSMutableString *currentElementValue;
 @property (nonatomic, retain) Person *record;
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar;
+- (void)showUnknownPersonViewController;
 
 @end

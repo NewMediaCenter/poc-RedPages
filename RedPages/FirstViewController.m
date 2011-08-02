@@ -180,9 +180,12 @@
 {
     
 	if([elementName isEqualToString:@"person"]) {
-		[record setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[record imageURL]]]];
-        NSLog (@"Person: %@", record);
-        [results addObject:record];
+        if( [[record displayName] length] > 0 ){
+            [record setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[record imageURL]]]];
+            NSLog (@"Person: %@", record);
+            [results addObject:record]; 
+        }
+		
 		
 				
 	
@@ -240,9 +243,45 @@
 		[currentElementValue appendString:string];
     
 
-	NSLog(@"Processing Value: %@", currentElementValue);
+//	NSLog(@"Processing Value: %@", currentElementValue);
 
+  
 	
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Person *luckyGuy = [results objectAtIndex:indexPath.row];
+            ABRecordRef newContact = ABPersonCreate();
+            CFErrorRef *anError = NULL;
+    ABRecordSetValue(newContact, kABPersonFirstNameProperty,(__bridge_retained CFStringRef) [luckyGuy givenName], anError);
+    ABRecordSetValue(newContact, kABPersonLastNameProperty,(__bridge_retained CFStringRef) [luckyGuy sn], anError);
+    NSString *trimmedString = [[luckyGuy telephoneNumber] stringByTrimmingCharactersInSet:
+                               [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+//    ABRecordSetValue(newContact, kABPersonPhoneMainLabel,(__bridge_retained CFNumberRef) [trimmedString integerValue], anError);
+    ABRecordSetValue(newContact, kABPersonJobTitleProperty,(__bridge_retained CFStringRef) [luckyGuy title], anError);
+    ABRecordSetValue(newContact, kABPersonEmailProperty,(__bridge_retained CFStringRef) [luckyGuy mail], anError);
+    ABRecordSetValue(newContact, kABPersonDepartmentProperty,(__bridge_retained CFStringRef) [luckyGuy unlHRPrimaryDepartment], anError);
+        
+    NSData *data=UIImageJPEGRepresentation([luckyGuy image], 1.0);
+    CFDataRef dr = CFDataCreate(NULL, [data bytes], [data length]);
+    
+    if ( data != nil){
+        ABPersonSetImageData(newContact, dr, anError);
+    }
+    
+			ABUnknownPersonViewController *picker = [[ABUnknownPersonViewController alloc] init];
+			picker.unknownPersonViewDelegate = self;
+			picker.displayedPerson = newContact;
+			picker.allowsAddingToAddressBook = YES;
+		    picker.allowsActions = YES;
+    picker.alternateName = [luckyGuy displayName];
+    picker.title = [luckyGuy displayName];
+    picker.message = [luckyGuy title];
+            
+			
+			[self.navigationController pushViewController:picker animated:YES];
 }
 
 @end

@@ -9,11 +9,13 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RedPages/FirstViewController.m"
-         timestampString = "333958250.560029"
+         timestampString = "333964176.326723"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "251"
-         endingLineNumber = "251">
+         startingLineNumber = "287"
+         endingLineNumber = "287"
+         landmarkName = "@implementation FirstViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -26,20 +28,6 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "183"
          endingLineNumber = "183"
-         landmarkName = "-parser:didEndElement:namespaceURI:qualifiedName:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "RedPages/FirstViewController.m"
-         timestampString = "333958250.560029"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "184"
-         endingLineNumber = "184"
          landmarkName = "-parser:didEndElement:namespaceURI:qualifiedName:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -83,6 +71,34 @@
          startingLineNumber = "181"
          endingLineNumber = "181"
          landmarkName = "-parser:didEndElement:namespaceURI:qualifiedName:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "RedPages/FirstViewController.m"
+         timestampString = "333960955.844964"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "186"
+         endingLineNumber = "186"
+         landmarkName = "-parser:didEndElement:namespaceURI:qualifiedName:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "RedPages/FirstViewController.m"
+         timestampString = "333962528.878613"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "257"
+         endingLineNumber = "257"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

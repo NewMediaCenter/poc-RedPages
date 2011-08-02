@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1900" systemVersion="11A511" targetRuntime="iOS.CocoaTouch" nextObjectID="55" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1900" systemVersion="11A511" targetRuntime="iOS.CocoaTouch" nextObjectID="72" propertyAccessControl="none" initialViewController="61">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="894"/>
@@ -10,7 +10,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
                 <viewController title="First" id="2" customClass="FirstViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="34">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackOpaque" placeholder="Search For People Here..." id="37">
@@ -33,8 +33,8 @@
                                     <rect key="frame" x="1" y="0.0" width="318" height="42"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" id="51">
-                                            <rect key="frame" x="150" y="12" width="20" height="20"/>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="gray" id="51">
+                                            <rect key="frame" x="149" y="11" width="20" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </activityIndicatorView>
                                     </subviews>
@@ -46,6 +46,7 @@
                         </prototypes>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="People" image="first" id="7" userLabel="People"/>
+                    <navigationItem key="navigationItem" title="UNL Directory" id="71"/>
                     <connections>
                         <outlet property="searchActive" destination="51" id="52"/>
                         <outlet property="searchDisplayController" destination="38" id="40"/>
@@ -60,60 +61,25 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="653" y="-138"/>
+            <point key="canvasLocation" x="646" y="231"/>
         </scene>
-        <scene sceneID="13">
+        <scene sceneID="69">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
-                <viewController title="Second" id="3" customClass="SecondViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="17">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="22">
-                                <rect key="frame" x="54" y="98" width="212" height="43"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" editable="NO" text="Loaded by the second view controller — an instance of SecondViewController — specified in the app delegate." textAlignment="center" id="23">
-                                <rect key="frame" x="20" y="181" width="280" height="88"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Departments" image="second" id="6"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="653" y="498"/>
-        </scene>
-        <scene sceneID="15">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
-                <tabBarController id="4" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="5">
-                        <rect key="frame" x="0.0" y="431" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="68" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="61" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="62">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
                     <connections>
-                        <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
-                        <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="70"/>
                     </connections>
-                </tabBarController>
+                </navigationController>
             </objects>
-            <point key="canvasLocation" x="132" y="180"/>
+            <point key="canvasLocation" x="274" y="231"/>
         </scene>
     </scenes>
     <resources>
         <image name="first" width="16" height="16"/>
-        <image name="second" width="16" height="16"/>
     </resources>
     <classes>
         <class className="ABUnknownPersonViewController" superclassName="UIViewController">
@@ -127,10 +93,6 @@
                 <relationship kind="outlet" name="searchActive" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
-        </class>
-        <class className="SecondViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecondViewController.h"/>
-            <relationships/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
