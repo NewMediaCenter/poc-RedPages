@@ -16,7 +16,6 @@
 @synthesize currentElementValue;
 @synthesize record;
 
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -28,10 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
     [tableView setDelegate:self];
     [tableView setDataSource:self];
-	// Do any additional setup after loading the view, typically from a nib.
-    
     
 }
 
@@ -116,7 +114,7 @@
         // do stuff
     }
     [searchActive startAnimating];
-    [self.searchDisplayController setActive:NO animated:YES] ;
+    [self.searchDisplayController setActive:NO animated:YES];
     
     
 }
@@ -167,10 +165,9 @@
                                           attributes:(NSDictionary *)attributeDict
 {
     //initialize the Person Element.
-    if ([elementName isEqualToString:@"person"]){
-        record = [[Person alloc] init]; 
+    if([elementName isEqualToString:@"person"]){
+    record = [[Person alloc] init];
     }
-   
     
     currentElementValue = nil;
     
@@ -181,10 +178,10 @@
                                       namespaceURI:(NSString *)namespaceURI
                                      qualifiedName:(NSString *)qName
 {
-    NSLog(@"Name,Value:%@,%@",elementName,currentElementValue);
+    
 	if([elementName isEqualToString:@"person"]) {
 		[record setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[record imageURL]]]];
-        NSLog (@"Person: %@ \n \n ", record);
+        NSLog (@"Person: %@", record);
         [results addObject:record];
 		
 				
@@ -199,7 +196,6 @@
 	}
     
     else if ([elementName isEqualToString:@"givenName"]) {
-        NSLog(@"Given Name match");
 		[record setGivenName:currentElementValue];
 	}
 	
@@ -228,7 +224,7 @@
 		[record setImageURL: [NSURL URLWithString:currentElementValue]];
 	}
    
-     //NSLog(@"element name = %@ | %@",elementNacme, currentElementValue);	
+    //NSLog(@"element name = %@ | %@",elementNacme, currentElementValue);	
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {

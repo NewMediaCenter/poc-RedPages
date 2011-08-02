@@ -13,6 +13,7 @@
 		6E9C8B4A13E33E5E001D522C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E9C8B4813E33E5E001D522C /* InfoPlist.strings */; };
 		6E9C8B4C13E33E5E001D522C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C8B4B13E33E5E001D522C /* main.m */; };
 		6E9C8B5013E33E5E001D522C /* RedPagesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C8B4F13E33E5E001D522C /* RedPagesAppDelegate.m */; };
+		6E9C8B5313E33E5E001D522C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E9C8B5113E33E5E001D522C /* MainStoryboard.storyboard */; };
 		6E9C8B5513E33E5E001D522C /* FirstViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 6E9C8B5413E33E5E001D522C /* FirstViewController.h */; };
 		6E9C8B5713E33E5E001D522C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C8B5613E33E5E001D522C /* FirstViewController.m */; };
 		6E9C8B5913E33E5E001D522C /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E9C8B5813E33E5E001D522C /* first.png */; };
@@ -54,6 +55,7 @@
 		6E9C8B4D13E33E5E001D522C /* RedPages-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RedPages-Prefix.pch"; sourceTree = "<group>"; };
 		6E9C8B4E13E33E5E001D522C /* RedPagesAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RedPagesAppDelegate.h; sourceTree = "<group>"; };
 		6E9C8B4F13E33E5E001D522C /* RedPagesAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedPagesAppDelegate.m; sourceTree = "<group>"; };
+		6E9C8B5213E33E5E001D522C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6E9C8B5413E33E5E001D522C /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		6E9C8B5613E33E5E001D522C /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		6E9C8B5813E33E5E001D522C /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				6E9C8B4E13E33E5E001D522C /* RedPagesAppDelegate.h */,
 				6E9C8B4F13E33E5E001D522C /* RedPagesAppDelegate.m */,
+				6E9C8B5113E33E5E001D522C /* MainStoryboard.storyboard */,
 				6E9C8B5413E33E5E001D522C /* FirstViewController.h */,
 				6E9C8B5613E33E5E001D522C /* FirstViewController.m */,
 				6E9C8B8B13E34737001D522C /* Person.h */,
@@ -254,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E9C8B4A13E33E5E001D522C /* InfoPlist.strings in Resources */,
+				6E9C8B5313E33E5E001D522C /* MainStoryboard.storyboard in Resources */,
 				6E9C8B5513E33E5E001D522C /* FirstViewController.h in Resources */,
 				6E9C8B5913E33E5E001D522C /* first.png in Resources */,
 				6E9C8B5B13E33E5E001D522C /* first@2x.png in Resources */,
@@ -328,6 +332,14 @@
 				6E9C8B4913E33E5E001D522C /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6E9C8B5113E33E5E001D522C /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E9C8B5213E33E5E001D522C /* en */,
+			);
+			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 		6E9C8B7413E33E5E001D522C /* InfoPlist.strings */ = {
