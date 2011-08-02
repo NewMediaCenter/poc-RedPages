@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4308118B13E7F52F006BFC3C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4308118A13E7F52F006BFC3C /* Icon.png */; };
 		6E9C8B4013E33E5E001D522C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9C8B3F13E33E5E001D522C /* UIKit.framework */; };
 		6E9C8B4213E33E5E001D522C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9C8B4113E33E5E001D522C /* Foundation.framework */; };
 		6E9C8B4413E33E5E001D522C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9C8B4313E33E5E001D522C /* CoreGraphics.framework */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4308118A13E7F52F006BFC3C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		6E9C8B3B13E33E5E001D522C /* RedPages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedPages.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E9C8B3F13E33E5E001D522C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6E9C8B4113E33E5E001D522C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -102,6 +104,7 @@
 		6E9C8B3013E33E5E001D522C = {
 			isa = PBXGroup;
 			children = (
+				4308118A13E7F52F006BFC3C /* Icon.png */,
 				6E9C8B9413E348F5001D522C /* AddressBookUI.framework */,
 				6E9C8B9213E348D9001D522C /* AddressBook.framework */,
 				6E9C8B4513E33E5E001D522C /* RedPages */,
@@ -257,6 +260,7 @@
 				6E9C8B5B13E33E5E001D522C /* first@2x.png in Resources */,
 				6E9C8B6113E33E5E001D522C /* second.png in Resources */,
 				6E9C8B6313E33E5E001D522C /* second@2x.png in Resources */,
+				4308118B13E7F52F006BFC3C /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

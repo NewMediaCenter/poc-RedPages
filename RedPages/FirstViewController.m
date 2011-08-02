@@ -30,7 +30,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     [tableView setDelegate:self];
     [tableView setDataSource:self];
-    
+    self.searchDisplayController.searchBar.scopeButtonTitles = nil;
 }
 
 - (void)viewDidUnload
@@ -113,6 +113,7 @@
     {
         // do stuff
     }
+    [searchActive setHidden:NO];
     [searchActive startAnimating];
     [self.searchDisplayController setActive:NO animated:YES];
     
@@ -122,7 +123,7 @@
 - (void)connection:(NSURLConnection *)conn didReceiveData:(NSData *)data
 {
     //add incoming data to NSMutableData dataarray.
-    NSLog(@"Recieved Data!");
+   // NSLog(@"Recieved Data!");
     [rawResponse appendData:data];
 }
 
@@ -182,7 +183,7 @@
 	if([elementName isEqualToString:@"person"]) {
         if( [[record displayName] length] > 0 ){
             [record setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[record imageURL]]]];
-            NSLog (@"Person: %@", record);
+    //        NSLog (@"Person: %@", record);
             [results addObject:record]; 
         }
 		
@@ -208,7 +209,9 @@
     else if ([elementName isEqualToString:@"mail"]) {
 		[record setMail:currentElementValue];
 	}
-	
+	else if ([elementName isEqualToString:@"sn"]) {
+		[record setSn:currentElementValue];
+	}
 	else if ([elementName isEqualToString:@"telephoneNumber"]) {
 		[record setTelephoneNumber:currentElementValue];
 	}
@@ -252,36 +255,61 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Person *luckyGuy = [results objectAtIndex:indexPath.row];
-            ABRecordRef newContact = ABPersonCreate();
+            ABRecordRef newPerson = ABPersonCreate();
             CFErrorRef *anError = NULL;
-    ABRecordSetValue(newContact, kABPersonFirstNameProperty,(__bridge_retained CFStringRef) [luckyGuy givenName], anError);
-    ABRecordSetValue(newContact, kABPersonLastNameProperty,(__bridge_retained CFStringRef) [luckyGuy sn], anError);
-    NSString *trimmedString = [[luckyGuy telephoneNumber] stringByTrimmingCharactersInSet:
-                               [NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
-//    ABRecordSetValue(newContact, kABPersonPhoneMainLabel,(__bridge_retained CFNumberRef) [trimmedString integerValue], anError);
-    ABRecordSetValue(newContact, kABPersonJobTitleProperty,(__bridge_retained CFStringRef) [luckyGuy title], anError);
-    ABRecordSetValue(newContact, kABPersonEmailProperty,(__bridge_retained CFStringRef) [luckyGuy mail], anError);
-    ABRecordSetValue(newContact, kABPersonDepartmentProperty,(__bridge_retained CFStringRef) [luckyGuy unlHRPrimaryDepartment], anError);
-        
+    
+    ABRecordSetValue(newPerson, kABPersonFirstNameProperty, (__bridge_retained CFStringRef)[luckyGuy givenName], anError);
+	ABRecordSetValue(newPerson, kABPersonLastNameProperty,(__bridge_retained CFStringRef) [luckyGuy sn], anError);
+    ABRecordSetValue(newPerson, kABPersonJobTitleProperty,(__bridge_retained CFStringRef) [luckyGuy title], anError);
+    ABRecordSetValue(newPerson, kABPersonDepartmentProperty,(__bridge_retained CFStringRef) [luckyGuy unlHRPrimaryDepartment], anError);
+    //ABRecordSetValue(newPerson, kABPersonAddressProperty,(__bridge_retained CFStringRef) [luckyGuy postalAddress], anError);
     NSData *data=UIImageJPEGRepresentation([luckyGuy image], 1.0);
     CFDataRef dr = CFDataCreate(NULL, [data bytes], [data length]);
     
     if ( data != nil){
-        ABPersonSetImageData(newContact, dr, anError);
+        ABPersonSetImageData(newPerson, dr, anError);
     }
+    ABMultiValueRef phone = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+    NSString *trimmedString = [[luckyGuy telephoneNumber] stringByTrimmingCharactersInSet:
+                               [NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
+    
+     ABMultiValueAddValueAndLabel(phone, (__bridge_retained CFStringRef)trimmedString, kABPersonPhoneMainLabel,NULL);
+    
+    ABMultiValueRef email = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+	 bool didAdd = ABMultiValueAddValueAndLabel(email, (__bridge_retained CFStringRef) [luckyGuy mail], kABWorkLabel, NULL);
+	
+	if (didAdd == YES)
+	{
+		ABRecordSetValue(newPerson, kABPersonEmailProperty, email, anError);
+        ABRecordSetValue(newPerson, kABPersonPhoneProperty, phone, anError);
+       
+		if (anError == NULL)
+		{
 			ABUnknownPersonViewController *picker = [[ABUnknownPersonViewController alloc] init];
 			picker.unknownPersonViewDelegate = self;
-			picker.displayedPerson = newContact;
+			picker.displayedPerson = newPerson;
 			picker.allowsAddingToAddressBook = YES;
 		    picker.allowsActions = YES;
-    picker.alternateName = [luckyGuy displayName];
-    picker.title = [luckyGuy displayName];
-    picker.message = [luckyGuy title];
-            
+			picker.alternateName = [luckyGuy displayName];
+			picker.title = [luckyGuy displayName];
+			picker.message = @"University of Nebraska-Lincoln";
 			
 			[self.navigationController pushViewController:picker animated:YES];
+        }
+    }
+		
+    
+   
+
+
+    
+        
+
+                
+			
+			
 }
 
 @end
