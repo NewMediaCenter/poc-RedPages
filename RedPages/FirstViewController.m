@@ -13,7 +13,8 @@
 
 @synthesize directoryConnnection;
 @synthesize rawResponse;
-
+@synthesize currentElementValue;
+@synthesize record;
 
 - (void)didReceiveMemoryWarning
 {
@@ -86,7 +87,7 @@
 
     [[cell textLabel] setText:[p displayName]];
     [[cell detailTextLabel] setText:[p title]];
-  //  [[cell imageView] setImage:[p image]];
+    [[cell imageView] setImage:[p image]];
     
     return cell;
 }
@@ -136,12 +137,20 @@
     //lets have it start parsing
     [parser parse];
     
+   
+    
+    
     //now that its done, we can release it
     //[parser release]; ~~ DEPRECATED WITH ARC
     
     //TODO:: Relaoad data
    // NSLog(@"Total Results: %@", results);
     
+}
+- (void)parserDidEndDocument:(NSXMLParser *)parser
+{
+     [searchActive stopAnimating];
+    [tableView reloadData];
 }
 
 - (void)parserDidStartDocument:(NSXMLParser *)parser
@@ -157,6 +166,8 @@
     //initialize the Person Element.
     record = [[Person alloc] init];
     
+    currentElementValue = nil;
+    
     
 }
 
@@ -166,7 +177,7 @@
 {
     
 	if([elementName isEqualToString:@"person"]) {
-	//	[record setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[record imageURL]]]];
+		[record setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[record imageURL]]]];
         NSLog (@"Person: %@", record);
         [results addObject:record];
 		
@@ -182,15 +193,18 @@
 	}
 		else 
     {
-        if ([record respondsToSelector: @selector(elementName)]) {
+        NSMutableString *selMeth = [[NSMutableString alloc] initWithString:@"set"];
+        [selMeth appendString:elementName];
+        NSLog(@"sel:%@", [selMeth description]);
+        if ([record respondsToSelector: NSSelectorFromString(selMeth)]) {
             [record setValue:currentElementValue forKey:elementName];
         }
        
     }
     //	[record release];
-    record = nil;
+    
 
-    //NSLog(@"element name = %@ | %@",elementName, currentElementValue);	
+    //NSLog(@"element name = %@ | %@",elementNacme, currentElementValue);	
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
