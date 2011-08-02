@@ -24,6 +24,7 @@ ABUnknownPersonViewControllerDelegate, NSXMLParserDelegate, UISearchDisplayDeleg
     Person *record;
     NSMutableString *currentElementValue;
     IBOutlet UITableView *tableView;
+    IBOutlet ABUnknownPersonViewController *addressbookView;
     
 
 }

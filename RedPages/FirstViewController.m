@@ -28,6 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [tableView setDelegate:self];
+    [tableView setDataSource:self];
 	// Do any additional setup after loading the view, typically from a nib.
     
     
@@ -105,7 +107,7 @@
     NSLog(@"THIS WORKS");
     rawResponse = [[NSMutableData alloc] init];
     NSString *searchQueryURL = [NSString stringWithFormat:
-                              @"http://directory.unl.edu/service.php?uid=%@&format=xml",[[searchBar text] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+                              @"http://directory.unl.edu/service.php?q=%@&format=xml",[[searchBar text] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
     NSURLRequest *queryRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:searchQueryURL]]; 
     NSLog (@"Loading URL: %@", searchQueryURL);
     [self setDirectoryConnnection:[[NSURLConnection alloc] initWithRequest:queryRequest delegate:self startImmediately:YES]];
@@ -114,7 +116,7 @@
         // do stuff
     }
     [searchActive startAnimating];
-    [searchBar resignFirstResponder];
+    [self.searchDisplayController setActive:NO animated:YES] ;
     
     
 }
