@@ -76,12 +76,12 @@
     return [results count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView 
+- (UITableViewCell *)tableView:(UITableView *)theTableView 
          cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     // Check for a reusable cell first, use that if it exists
     UITableViewCell *cell =
-    [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    [theTableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
     
     // If there is no reusable cell of this type, create a new one
     if (!cell) {
