@@ -41,6 +41,10 @@
     
     
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [tableView reloadData];
+    [super viewDidAppear:animated];
+}
 
 - (void)viewDidUnload
 {
@@ -51,13 +55,11 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [tableView reloadData];
     [super viewWillAppear:animated];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
+
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -240,6 +242,9 @@
 	else if ([elementName isEqualToString:@"telephoneNumber"]) {
 		[record setTelephoneNumber:currentElementValue];
 	}
+    else if ([elementName isEqualToString:@"eduPersonAffiliation"] && [currentElementValue isEqualToString:@"student"]) {
+		[record setTitle:@"Student"];
+	}
     else if ([elementName isEqualToString:@"title"]) {
 		[record setTitle:currentElementValue];
 	}
@@ -327,6 +332,7 @@
     
     
 }
+
 
 -(void)unknownPersonViewController:(ABUnknownPersonViewController *)unknownCardViewController didResolveToPerson:(ABRecordRef)person
 {
