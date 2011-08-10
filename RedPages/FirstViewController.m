@@ -76,12 +76,12 @@
     return [results count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)localTableView 
+- (UITableViewCell *)tableView:(UITableView *)tableView 
          cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     // Check for a reusable cell first, use that if it exists
     UITableViewCell *cell =
-    [localTableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
     
     // If there is no reusable cell of this type, create a new one
     if (!cell) {
@@ -101,6 +101,7 @@
     [[cell imageView] setImage:[p image]];
     
     return cell;
+    
 }
 
 
@@ -113,6 +114,7 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     NSLog(@"THIS WORKS");
+    
     rawResponse = [[NSMutableData alloc] init];
     NSString *searchQueryURL = [NSString stringWithFormat:
                                 @"http://directory.unl.edu/service.php?q=%@&format=xml",[[searchBar text] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
@@ -316,8 +318,7 @@
 		ABRecordSetValue(newPerson, kABPersonEmailProperty, email, anError);
         
     }
-    if (anError == nil)
-    {
+    if (anError == NULL)    {
         ABUnknownPersonViewController *picker = [[ABUnknownPersonViewController alloc] init];
         picker.unknownPersonViewDelegate = self;
         picker.displayedPerson = newPerson;
