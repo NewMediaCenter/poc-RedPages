@@ -33,13 +33,13 @@
     self.searchDisplayController.searchBar.scopeButtonTitles = nil;
     activityIndicator = 
     [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-     barButton = 
+    barButton = 
     [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
     
     // Set to Left or Right
     [[self navigationItem] setRightBarButtonItem:barButton];
     
-
+    
 }
 
 - (void)viewDidUnload
@@ -75,18 +75,18 @@
     return [results count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView 
+- (UITableViewCell *)tableView:(UITableView *)localTableView 
          cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     // Check for a reusable cell first, use that if it exists
     UITableViewCell *cell =
-    [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    [localTableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
     
     // If there is no reusable cell of this type, create a new one
     if (!cell) {
         cell = [[UITableViewCell alloc]
-                 initWithStyle:UITableViewCellStyleSubtitle
-                 reuseIdentifier:@"UITableViewCell"];
+                initWithStyle:UITableViewCellStyleSubtitle
+                reuseIdentifier:@"UITableViewCell"];
     }
     
     // Set the text on the cell with the description of the possession
@@ -94,7 +94,7 @@
     // will appear in on the tableview
     Person *p = [results objectAtIndex:[indexPath row]];
     
-
+    
     [[cell textLabel] setText:[p displayName]];
     [[cell detailTextLabel] setText:[p title]];
     [[cell imageView] setImage:[p image]];
@@ -114,7 +114,7 @@
     NSLog(@"THIS WORKS");
     rawResponse = [[NSMutableData alloc] init];
     NSString *searchQueryURL = [NSString stringWithFormat:
-                              @"http://directory.unl.edu/service.php?q=%@&format=xml",[[searchBar text] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+                                @"http://directory.unl.edu/service.php?q=%@&format=xml",[[searchBar text] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
     NSURLRequest *queryRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:searchQueryURL]]; 
     NSLog (@"Loading URL: %@", searchQueryURL);
     [self setDirectoryConnnection:[[NSURLConnection alloc] initWithRequest:queryRequest delegate:self startImmediately:YES]];
@@ -125,6 +125,8 @@
     
     [activityIndicator startAnimating];
     [self.searchDisplayController setActive:NO animated:YES];
+   
+    [tableView reloadData];
     
     
 }
@@ -132,14 +134,14 @@
 - (void)connection:(NSURLConnection *)conn didReceiveData:(NSData *)data
 {
     //add incoming data to NSMutableData dataarray.
-   // NSLog(@"Recieved Data!");
+    // NSLog(@"Recieved Data!");
     [rawResponse appendData:data];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     
-//    NSLog(@"Raw Data: %@", rawResponse);
+    //    NSLog(@"Raw Data: %@", rawResponse);
     
     // lets create it and give it some data
     
@@ -148,16 +150,16 @@
     //lets have it start parsing
     //[parser parse];
     // ACTUALLY, lets have it parse in an operation
-  
+    
     [self letsParse];
- 
+    
     
     
     //now that its done, we can release it
     //[parser release]; ~~ DEPRECATED WITH ARC
     
     //TODO:: Relaoad data
-   // NSLog(@"Total Results: %@", results);
+    // NSLog(@"Total Results: %@", results);
     
 }
 - (void)letsParse
@@ -172,7 +174,7 @@
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
-     [activityIndicator stopAnimating];
+    [activityIndicator stopAnimating];
     [tableView reloadData];
 }
 
@@ -182,36 +184,37 @@
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName
-                                        namespaceURI:(NSString *)namespaceURI
-                                       qualifiedName:(NSString *)qName
-                                          attributes:(NSDictionary *)attributeDict
+  namespaceURI:(NSString *)namespaceURI
+ qualifiedName:(NSString *)qName
+    attributes:(NSDictionary *)attributeDict
 {
     //initialize the Person Element.
     if([elementName isEqualToString:@"person"]){
-    record = [[Person alloc] init];
+        record = [[Person alloc] init];
     }
     
     currentElementValue = nil;
-    
+    [tableView reloadData];
     
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName 
-                                      namespaceURI:(NSString *)namespaceURI
-                                     qualifiedName:(NSString *)qName
+  namespaceURI:(NSString *)namespaceURI
+ qualifiedName:(NSString *)qName
 {
     
 	if([elementName isEqualToString:@"person"]) {
         if( [[record displayName] length] > 0 ){
             [record setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[record imageURL]]]];
-    //        NSLog (@"Person: %@", record);
+            //        NSLog (@"Person: %@", record);
             [results addObject:record]; 
             [tableView reloadData];
+            
         }
 		
 		
-				
-	
+        
+        
 	}
 	else if ([elementName isEqualToString:@"cn"]) {
 		[[record cn] addObject:currentElementValue];
@@ -251,7 +254,7 @@
 	else if ([elementName isEqualToString:@"imageURL"]) {
 		[record setImageURL: [NSURL URLWithString:currentElementValue]];
 	}
-   
+    
     //NSLog(@"element name = %@ | %@",elementNacme, currentElementValue);	
 }
 
@@ -267,24 +270,24 @@
 	else
 		[currentElementValue appendString:string];
     
-
-//	NSLog(@"Processing Value: %@", currentElementValue);
-
-  
+    
+    //	NSLog(@"Processing Value: %@", currentElementValue);
+    
+    
 	
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Person *luckyGuy = [results objectAtIndex:indexPath.row];
-            ABRecordRef newPerson = ABPersonCreate();
-            CFErrorRef *anError = NULL;
+    ABRecordRef newPerson = ABPersonCreate();
+    CFErrorRef *anError = NULL;
     
     
-    ABRecordSetValue(newPerson, kABPersonFirstNameProperty, (__bridge_retained CFStringRef)[luckyGuy givenName], anError);
-	ABRecordSetValue(newPerson, kABPersonLastNameProperty,(__bridge_retained CFStringRef) [luckyGuy sn], anError);
-    ABRecordSetValue(newPerson, kABPersonJobTitleProperty,(__bridge_retained CFStringRef) [luckyGuy title], anError);
-    ABRecordSetValue(newPerson, kABPersonDepartmentProperty,(__bridge_retained CFStringRef) [luckyGuy unlHRPrimaryDepartment], anError);
+    if ([luckyGuy givenName]) ABRecordSetValue(newPerson, kABPersonFirstNameProperty, (__bridge_retained CFStringRef)[luckyGuy givenName], anError);
+	if ([luckyGuy sn]) ABRecordSetValue(newPerson, kABPersonLastNameProperty,(__bridge_retained CFStringRef) [luckyGuy sn], anError);
+    if ([luckyGuy title])ABRecordSetValue(newPerson, kABPersonJobTitleProperty,(__bridge_retained CFStringRef) [luckyGuy title], anError);
+    if ([luckyGuy unlHRPrimaryDepartment]) ABRecordSetValue(newPerson, kABPersonDepartmentProperty,(__bridge_retained CFStringRef) [luckyGuy unlHRPrimaryDepartment], anError);
     //ABRecordSetValue(newPerson, kABPersonAddressProperty,(__bridge_retained CFStringRef) [luckyGuy postalAddress], anError);
     NSData *data=UIImageJPEGRepresentation([luckyGuy image], 1.0);
     CFDataRef dr = CFDataCreate(NULL, [data bytes], [data length]);
@@ -292,38 +295,55 @@
     if ( data != nil){
         ABPersonSetImageData(newPerson, dr, anError);
     }
-    ABMultiValueRef phone = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-    NSString *trimmedString = [[luckyGuy telephoneNumber] stringByTrimmingCharactersInSet:
-                               [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
-    
-     ABMultiValueAddValueAndLabel(phone, (__bridge_retained CFStringRef)trimmedString, kABPersonPhoneMainLabel,NULL);
-    
-    ABMultiValueRef email = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-	 bool didAdd = ABMultiValueAddValueAndLabel(email, (__bridge_retained CFStringRef) [luckyGuy mail], kABWorkLabel, NULL);
-	
-	if (didAdd == YES)
-	{
-		ABRecordSetValue(newPerson, kABPersonEmailProperty, email, anError);
+    if ([luckyGuy telephoneNumber]) {
+        ABMultiValueRef phone = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+        NSString *trimmedString = [[luckyGuy telephoneNumber] stringByTrimmingCharactersInSet:
+                                   [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        
+        
+        ABMultiValueAddValueAndLabel(phone, (__bridge_retained CFStringRef)trimmedString, kABPersonPhoneMainLabel,NULL);
         ABRecordSetValue(newPerson, kABPersonPhoneProperty, phone, anError);
-       
-		if (anError == NULL)
-		{
-			ABUnknownPersonViewController *picker = [[ABUnknownPersonViewController alloc] init];
-			picker.unknownPersonViewDelegate = self;
-			picker.displayedPerson = newPerson;
-			picker.allowsAddingToAddressBook = YES;
-		    picker.allowsActions = YES;
-			picker.alternateName = [luckyGuy displayName];
-			picker.title = [luckyGuy displayName];
-			picker.message = @"University of Nebraska-Lincoln";
-			
-			[self.navigationController pushViewController:picker animated:YES];
-        }
     }
-
-			
+    if ([luckyGuy mail]){
+        ABMultiValueRef email = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+        ABMultiValueAddValueAndLabel(email, (__bridge_retained CFStringRef) [luckyGuy mail], kABWorkLabel, NULL);
+		ABRecordSetValue(newPerson, kABPersonEmailProperty, email, anError);
+        
+    }
+    if (anError == nil)
+    {
+        ABUnknownPersonViewController *picker = [[ABUnknownPersonViewController alloc] init];
+        picker.unknownPersonViewDelegate = self;
+        picker.displayedPerson = newPerson;
+        picker.allowsAddingToAddressBook = YES;
+        picker.allowsActions = YES;
+        picker.alternateName = [luckyGuy displayName];
+        picker.title = [luckyGuy displayName];
+        picker.message = @"University of Nebraska-Lincoln";
+        
+        [self.navigationController pushViewController:picker animated:YES];
+    }
+    
+    
+    
 }
+
+-(void)unknownPersonViewController:(ABUnknownPersonViewController *)unknownCardViewController didResolveToPerson:(ABRecordRef)person
+{
+   // if someone got added, it says "hey someone was added"
+    if (person){
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Contact Added." message:@"Contact Was successfuly added to your Address Book." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+   
+    [alert show];
+        
+    }
+    
+    
+    [self dismissModalViewControllerAnimated:YES]; 
+}
+
+
 
 
 @end
