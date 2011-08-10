@@ -42,7 +42,7 @@
     
 }
 -(void)viewDidAppear:(BOOL)animated{
-    [tableView reloadData];
+
     [super viewDidAppear:animated];
 }
 
@@ -55,7 +55,6 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [tableView reloadData];
     [super viewWillAppear:animated];
 }
 
@@ -128,7 +127,9 @@
     [activityIndicator startAnimating];
     [self.searchDisplayController setActive:NO animated:YES];
    
-    [tableView reloadData];
+    
+   
+
     
     
 }
@@ -196,7 +197,7 @@
     }
     
     currentElementValue = nil;
-    [tableView reloadData];
+   
     
 }
 
@@ -293,7 +294,7 @@
 	if ([luckyGuy sn]) ABRecordSetValue(newPerson, kABPersonLastNameProperty,(__bridge_retained CFStringRef) [luckyGuy sn], anError);
     if ([luckyGuy title])ABRecordSetValue(newPerson, kABPersonJobTitleProperty,(__bridge_retained CFStringRef) [luckyGuy title], anError);
     if ([luckyGuy unlHRPrimaryDepartment]) ABRecordSetValue(newPerson, kABPersonDepartmentProperty,(__bridge_retained CFStringRef) [luckyGuy unlHRPrimaryDepartment], anError);
-    //ABRecordSetValue(newPerson, kABPersonAddressProperty,(__bridge_retained CFStringRef) [luckyGuy postalAddress], anError);
+    //if ([luckyGuy postalAddress]) ABRecordSetValue(newPerson, kABPersonAddressProperty,(__bridge_retained CFStringRef) [luckyGuy postalAddress], anError);
     NSData *data=UIImageJPEGRepresentation([luckyGuy image], 1.0);
     CFDataRef dr = CFDataCreate(NULL, [data bytes], [data length]);
     

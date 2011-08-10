@@ -405,12 +405,14 @@
 		6E9C8B7E13E33E5E001D522C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jerrad Thramer (2V87ZE7WCC)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RedPages/RedPages-Prefix.pch";
 				INFOPLIST_FILE = "RedPages/RedPages-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A6D82827-EDDB-47F4-8A90-61F481E3CDDE";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -418,12 +420,14 @@
 		6E9C8B7F13E33E5E001D522C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jerrad Thramer (2V87ZE7WCC)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: University of Nebraska";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: University of Nebraska";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RedPages/RedPages-Prefix.pch";
 				INFOPLIST_FILE = "RedPages/RedPages-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A6D82827-EDDB-47F4-8A90-61F481E3CDDE";
+				PROVISIONING_PROFILE = "B9574B56-7BA3-4EDC-A51B-7139D42E17F5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B9574B56-7BA3-4EDC-A51B-7139D42E17F5";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

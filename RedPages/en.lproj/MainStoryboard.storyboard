@@ -70,8 +70,6 @@
                         <outlet property="delegate" destination="2" id="44"/>
                         <outlet property="searchBar" destination="37" id="39"/>
                         <outlet property="searchContentsController" destination="2" id="41"/>
-                        <outlet property="searchResultsDataSource" destination="2" id="98"/>
-                        <outlet property="searchResultsDelegate" destination="2" id="99"/>
                     </connections>
                 </searchDisplayController>
             </objects>
